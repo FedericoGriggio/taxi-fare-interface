@@ -1,6 +1,5 @@
 //let taxiFareApiUrl = 'https://taxifare.lewagon.ai/predict'; // replace with your API endpoint
-let taxiFareApiUrl = 'https://taxifareight-xog4rw4kza-ew.a.run.app/predict'; // Mohamed
-//let taxiFareApiUrl = 'https://ta-taxifare-esrly5tobq-ew.a.run.app/predict'; // replace with your API endpoint
+let taxiFareApiUrl = 'https://ta-taxifare-esrly5tobq-ew.a.run.app/predict'; // replace with your API endpoint
 const centralCoordinates = [-74.00597, 40.71427]; // starting position [lng, lat]
 
 if (window.location.href.includes('https://taxifare.lewagon.com')) {
