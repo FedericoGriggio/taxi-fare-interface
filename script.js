@@ -1,11 +1,14 @@
-let taxiFareApiUrl = 'http://localhost:8001/predict'; // replace with your API endpoint
+//let taxiFareApiUrl = 'https://taxifare.lewagon.ai/predict'; // replace with your API endpoint
+let taxiFareApiUrl = 'https://taxifareight-xog4rw4kza-ew.a.run.app/predict'; // Mohamed
+//let taxiFareApiUrl = 'https://ta-taxifare-esrly5tobq-ew.a.run.app/predict'; // replace with your API endpoint
 const centralCoordinates = [-74.00597, 40.71427]; // starting position [lng, lat]
 
 if (window.location.href.includes('https://taxifare.lewagon.com')) {
   taxiFareApiUrl = 'https://taxifare.lewagon.ai/predict';
 }
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoia3Jva3JvYiIsImEiOiJja2YzcmcyNDkwNXVpMnRtZGwxb2MzNWtvIn0.69leM_6Roh26Ju7Lqb2pwQ';
+//mapboxgl.accessToken = 'pk.eyJ1Ijoia3Jva3JvYiIsImEiOiJja2YzcmcyNDkwNXVpMnRtZGwxb2MzNWtvIn0.69leM_6Roh26Ju7Lqb2pwQ'; // Wagon Solution
+mapboxgl.accessToken = 'pk.eyJ1IjoiZmdyaWdnaW8iLCJhIjoiY2xpbTRkMjdvMGtwazNxcGttNnZpeDJqayJ9.dafE2ZYnZHwsF_5r2Gk9Wg';
 
 const displayMap = (start, stop) => {
   const map = new mapboxgl.Map({
@@ -208,9 +211,11 @@ const predict = () => {
       })
       .then(response => response.json())
       .then(data => {
+        //document.getElementById('fare_amount').classList.remove('d-none');
         document.getElementById('fare').classList.remove('d-none');
         const fareResult = document.getElementById('predicted-fare');
-        const fare = Math.round(data['fare'] * 100) / 100
+        const fare = Math.round(data['fare_amount'] * 100) / 100
+        //const fare = Math.round(data['fare'] * 100) / 100
         fareResult.innerText = `$${fare}`;
       })
       .catch((error) => {
